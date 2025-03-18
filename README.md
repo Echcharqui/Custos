@@ -1,4 +1,4 @@
-# Custos Project
+# Custos
 
 ![Custos Logo](./graphic/theLogo.png)
 
@@ -160,24 +160,56 @@ Custos provides a secure authentication system with multiple endpoints for user 
 - **Description:** Create a new user account.
 - **Required Fields:** `email`, `password`, `passwordConfirmation`
 - **Response:** A success message and user details if registration is successful.
+#### Use Case Diagram (User Registration)
+<img src="./diagrams/diagram-export-3-18-2025-9_14_51-AM.png" alt="diagrma 1" width="300">
+
+#### Sequence Diagram (User Registration Flow)
+<img src="./diagrams/diagram-export-3-18-2025-9_20_51-AM.png" alt="diagrma 1" width="300">
+
+#### Activity Diagram (User Registration Process)
+<img src="./diagrams/diagram-export-3-18-2025-9_31_40-AM.png" alt="diagrma 1" width="300">
 
 ### Login
 - **Endpoint:** `POST /auth/login`
 - **Description:** Authenticate a user and obtain an access token.
 - **Required Fields:** `email`, `password`
 - **Response:** Returns an access token and refresh token.
+#### Use Case Diagram (User Login)
+<img src="./diagrams/diagram-export-3-18-2025-10_14_16-AM.png" alt="diagrma 1" width="300">
+
+#### Sequence Diagram (User Login Flow)
+<img src="./diagrams/diagram-export-3-18-2025-10_17_31-AM.png" alt="diagrma 1" width="300">
+
+#### Activity Diagram (User Login Process)
+<img src="./diagrams/diagram-export-3-18-2025-10_26_44-AM.png" alt="diagrma 1" width="300">
 
 ### Verify Account
 - **Endpoint:** `PUT /auth/account-verification`
 - **Description:** Verify a newly registered user account using the token sent via email.
 - **Required:** Bearer token in the `Authorization` header.
 - **Response:** Confirmation message upon successful verification.
+#### Use Case Diagram (Account Verification Process)
+<img src="./diagrams/diagram-export-3-18-2025-8_18_58-PM.png" alt="diagrma 1" width="300">
+
+#### Sequence Diagram (Account Verification Flow)
+<img src="./diagrams/diagram-export-3-18-2025-8_21_08-PM.png" alt="diagrma 1" width="300">
+
+#### Activity Diagram (Account Verification Process)
+<img src="./diagrams/diagram-export-3-18-2025-8_22_59-PM.png" alt="diagrma 1" width="300">
 
 ### Resend Verification Email
 - **Endpoint:** `POST /auth/resend-new-confirmation-email`
 - **Description:** Request a new confirmation email if the previous one expired.
 - **Required Fields:** `email`
 - **Response:** A confirmation email is sent again.
+#### Use Case Diagram (Resend Confirmation Email Process)
+<img src="./diagrams/diagram-export-3-18-2025-11_03_15-PM.png" alt="diagrma 1" width="300">
+
+#### Activity Diagram (Resend Confirmation Email Process)
+<img src="./diagrams/diagram-export-3-18-2025-11_15_00-PM.png" alt="diagrma 1" width="300">
+
+#### Sequence Diagram (Resend Confirmation Email Flow)
+<img src="./diagrams/diagram-export-3-18-2025-11_04_03-PM.png" alt="diagrma 1" width="300">
 
 ### Reset Password (Forgot Password)
 - **Step 1: Request Password Reset**
@@ -185,6 +217,14 @@ Custos provides a secure authentication system with multiple endpoints for user 
   - **Description:** Request a password reset link.
   - **Required Fields:** `email`
   - **Response:** Reset instructions sent to the user's email.
+#### Use Case Diagram (Forgot Password Process)
+<img src="./diagrams/diagram-export-3-18-2025-10_39_38-PM.png" alt="diagrma 1" width="300">
+
+#### Sequence Diagram (Forgot Password Flow)
+<img src="./diagrams/diagram-export-3-18-2025-10_40_54-PM.png" alt="diagrma 1" width="300">
+
+#### Activity Diagram (Forgot Password Process)
+<img src="./diagrams/diagram-export-3-18-2025-10_42_24-PM.png" alt="diagrma 1" width="300">
 
 - **Step 2: Reset the Password**
   - **Endpoint:** `PUT /auth/reset-password`
@@ -193,23 +233,57 @@ Custos provides a secure authentication system with multiple endpoints for user 
   - **Required:** Bearer token in `Authorization` header.
   - **Response:** Password reset confirmation.
 
+#### Use Case Diagram (Reset Password Process)
+<img src="./diagrams/diagram-export-3-18-2025-10_43_42-PM.png" alt="diagrma 1" width="300">
+
+#### Sequence Diagram (Reset Password Flow)
+<img src="./diagrams/diagram-export-3-18-2025-10_45_04-PM.png" alt="diagrma 1" width="300">
+
+#### Activity Diagram (Reset Password Process)
+<img src="./diagrams/diagram-export-3-18-2025-10_57_14-PM.png" alt="diagrma 1" width="300">
+
 ### Check Token Validity
 - **Endpoint:** `GET /auth/check-access-token`
 - **Description:** Validate an access token and retrieve user details.
 - **Required:** Bearer token in `Authorization` header.
 - **Response:** User details if the token is valid.
+#### Use Case Diagram (Check Access Token Validity Process)
+<img src="./diagrams/diagram-export-3-18-2025-11_00_25-PM.png" alt="diagrma 1" width="300">
+
+#### Sequence Diagram (Check Access Token Validity Flow)
+<img src="./diagrams/diagram-export-3-18-2025-11_01_19-PM.png" alt="diagrma 1" width="300">
+
+#### Activity Diagram (Check Access Token Validity Process)
+<img src="./diagrams/diagram-export-3-18-2025-11_02_15-PM.png" alt="diagrma 1" width="300">
 
 ### Refresh Access Token
 - **Endpoint:** `POST /auth/refresh-access-token`
 - **Description:** Generate a new access token using a refresh token.
 - **Required:** `x-refresh-token` in the request header.
 - **Response:** A new access token.
+#### Use Case Diagram (Refresh Token Process)
+<img src="./diagrams/diagram-export-3-18-2025-10_57_55-PM.png" alt="diagrma 1" width="300">
+
+#### Sequence Diagram (Refresh Token Flow)
+<img src="./diagrams/diagram-export-3-18-2025-10_59_02-PM.png" alt="diagrma 1" width="300">
+
+#### Activity Diagram (Refresh Token Process)
+<img src="./diagrams/diagram-export-3-18-2025-10_59_46-PM.png" alt="diagrma 1" width="300">
+
 
 ### Logout
 - **Endpoint:** `POST /auth/logout`
 - **Description:** Invalidate access and refresh tokens to log out the user.
 - **Required:** Bearer token in `Authorization` header and `x-refresh-token`.
 - **Response:** Confirmation of successful logout.
+#### Use Case Diagram (Logout Process)
+<img src="./diagrams/diagram-export-3-18-2025-10_33_26-PM.png" alt="diagrma 1" width="300">
+
+#### Sequence Diagram (Logout Flow)
+<img src="./diagrams/diagram-export-3-18-2025-10_35_29-PM.png" alt="diagrma 1" width="300">
+
+#### Activity Diagram (Logout Process)
+<img src="./diagrams/diagram-export-3-18-2025-10_37_01-PM.png" alt="diagrma 1" width="300">
 
 These endpoints allow you to fully manage user authentication and session security.
 
@@ -218,27 +292,19 @@ These endpoints allow you to fully manage user authentication and session securi
 
 The API is documented using Swagger. You can access the documentation at `http://localhost:4000/api/v1/documentation/` once the server is running.
 
-## Diagrams
-#### Use Case Diagram (User Registration)
-![Custos Logo](./diagrams/diagram-export-3-18-2025-9_14_51-AM.png)
-#### Sequence Diagram (User Registration Flow)
-![Custos Logo](./diagrams/diagram-export-3-18-2025-9_20_51-AM.png)
-#### Activity Diagram (User Registration Process)
-![Custos Logo](./diagrams/diagram-export-3-18-2025-9_31_40-AM.png)
+## Extra Diagrams
 #### Deployment Diagram (Authentication System Infrastructure)
-![Custos Logo](./diagrams/diagram-export-3-18-2025-9_44_06-AM.png)
+<img src="./diagrams/diagram-export-3-18-2025-9_44_06-AM.png" alt="diagrma 1" width="300">
+
 #### Component Diagram (Authentication System Architecture)
-![Custos Logo](./diagrams/diagram-export-3-18-2025-9_48_15-AM.png)
+<img src="./diagrams/diagram-export-3-18-2025-9_48_15-AM.png" alt="diagrma 1" width="300">
+
 #### State Machine Diagram (Authentication Token Lifecycle)
-![Custos Logo](./diagrams/diagram-export-3-18-2025-9_51_42-AM.png)
+<img src="./diagrams/diagram-export-3-18-2025-9_51_42-AM.png" alt="diagrma 1" width="300">
+
 #### API Flow Diagram (Request-Response Cycle in Authentication System)
-![Custos Logo](./diagrams/diagram-export-3-18-2025-9_58_01-AM.png)
-#### Use Case Diagram (User Login)
-![Custos Logo](./diagrams/diagram-export-3-18-2025-10_14_16-AM.png)
-#### Sequence Diagram (User Login Flow)
-![Custos Logo](./diagrams/diagram-export-3-18-2025-10_17_31-AM.png)
-#### Activity Diagram (User Login Process)
-![Custos Logo](./diagrams/diagram-export-3-18-2025-10_26_44-AM.png)
+<img src="./diagrams/diagram-export-3-18-2025-9_58_01-AM.png" alt="diagrma 1" width="300">
+
 
 ## Contributing
 
